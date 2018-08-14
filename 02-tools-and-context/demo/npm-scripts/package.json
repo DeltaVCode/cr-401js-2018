@@ -1,0 +1,20 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "echo-path": "cross-env ENVTEST=TRUE node echo-path.js",
+    "lint": "eslint .",
+    "start": "cross-env PORT=3000 node .",
+    "test:watch": "jest --watch",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "jest": "^23.5.0"
+  }
+}
