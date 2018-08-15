@@ -4,3 +4,6 @@
 [submodule ".\\02-tools-and-context\\demo\\list"]
 	path = .\\02-tools-and-context\\demo\\list
 	url = https://github.com/DeltaVCode-cr-401js-2018/02-tools-and-context.git
+[submodule "03-asynchronous-callbacks/demo/lab-demo"]
+	path = 03-asynchronous-callbacks/demo/lab-demo
+	url = https://github.com/DeltaVCode-cr-401js-2018/03-asynchronous-callbacks.git
