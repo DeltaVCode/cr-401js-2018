@@ -7,3 +7,6 @@
 [submodule "03-asynchronous-callbacks/demo/lab-demo"]
 	path = 03-asynchronous-callbacks/demo/lab-demo
 	url = https://github.com/DeltaVCode-cr-401js-2018/03-asynchronous-callbacks.git
+[submodule "04-data-modeling-and-binary/demo/lab-demo"]
+	path = 04-data-modeling-and-binary/demo/lab-demo
+	url = https://github.com/DeltaVCode-cr-401js-2018/04-data-modeling-and-binary.git
