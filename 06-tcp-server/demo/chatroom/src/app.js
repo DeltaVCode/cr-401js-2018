@@ -9,7 +9,21 @@ const net = require('net');
 const server = net.createServer();
 
 server.on('connection', function (socket) {
-  socket.write(`Hello, world!`);
+  socket.write(`Hello, world!\r\n`);
+
+  socket.line = '';
+
+  socket.on('data', function (data) {
+    console.log(data);
+    socket.line += data.toString();
+
+    // Not a newline? Wait for more data...
+    if (!socket.line.endsWith('\r\n'))
+      return;
+
+    console.log(socket.line);
+    socket.line = '';
+  });
 });
 
 exports.startServer = (port) => {
