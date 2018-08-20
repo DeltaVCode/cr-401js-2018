@@ -11,6 +11,7 @@ const server = net.createServer();
 
 server.on('connection', function (socket) {
   const user = new User(socket);
+  socketPool.addUser(user);
   socket.write(`Your user ID is ${user.id}!\r\n`);
 
   socket.line = '';
@@ -31,6 +32,9 @@ server.on('connection', function (socket) {
 
     socket.line = '';
   });
+
+  // TODO: socket.on('error', ...)
+  // TODO: socket.on('close', ...)
 });
 
 exports.startServer = (port) => {
