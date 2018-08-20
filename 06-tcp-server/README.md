@@ -1,27 +1,30 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 06: TCP Server
-======
+# ![cf](https://i.imgur.com/7v5ASc8.png) Lab 06: TCP Server
 
-## Learning Objectives  
+## Learning Objectives
+
 * Students will learn how to network computers by implementing a TCP server
 * Students will learn to describe computer networking using the OSI model
 * Students will learn to describe computer networking using the Internet Protocol Suite
 
 ## Resources
+
 * Skim [net module docs](https://nodejs.org/api/net.html)
 * Skim [events api docs](https://nodejs.org/api/events.html)
-* **Windows users only**: Please watch [this video](https://www.youtube.com/watch?v=WkSOHBrdeB8&index=21&list=PLVngfM2hsbi_DnO3_JQSgt0Wvipc5Edl5&t=0s) to install a tool called Putty that you will need to prepare for Lab 6. 
+* **Windows users only**: Please watch [this video](https://www.youtube.com/watch?v=WkSOHBrdeB8&index=21&list=PLVngfM2hsbi_DnO3_JQSgt0Wvipc5Edl5&t=0s) to install a tool called Putty that you will need to prepare for Lab 6.
+  * Or, open PowerShell as Administrator and `Enable-WindowsOptionalFeature -Online -FeatureName TelnetClient`
 
 ## Outline
 
 ### EventEmitter
+
 Much of the NodeJS architecture is built around the use of events. All objects that emit events in NodeJS are instances of the `EventEmitter` constructor. EventEmitter's are a great way to handle controlling asynchronous events. Functions can be registered as listeners for an event on instances of the EventEmitter class. These instances can emit events and pass the listener's data.
 
 ### OSI Model  
+
 Programmers and engineers have been able to network computers since the early 1970s. As the needs of networked computers evolved, there where many solutions developed to connect two ore more computers together and share information between them. Over time, several different conceptual models have also been developed to help describe the different networking solutions. In the mid 1980s the _"Open Systems Interconnection Reference Model"_ (OSI model) was developed as a seven layer model. This seven layer OSI model has continued to accurately describe the different processes in computer networking, and is still widely used as a point of reference while working in networked systems today. A programer or engineer is usually responsible for the goals of a specific layer and communicating with the layer above and below. Not every computer network solution uses all seven layers, for example HTTP skips the Presentation and Session layers and lives directly on top of the Transport layer.
 
-
-| # | Layer | Protocol Data Unit | Function | Examples |   
-| --- | ---- | ----- | ----- | ----- |
+| # | Layer | Protocol Data Unit | Function | Examples |
+| - | ----- | ------------------ | -------- | -------- |
 | 7 | Application | Data | Hight Level APIs | HTTP, IMAP, POP, SSH |  
 | 6 | Presentation | Data | Data translating, including encryption, character encoding, and compression | Strings encoded with null terminated strings vs Strings defined by an Integer Length |  
 | 5 | Session | Data | Manages a session though passing data back and fourth | NetBios and Remote Procedure Protocol (RPC) |
@@ -31,22 +34,25 @@ Programmers and engineers have been able to network computers since the early 19
 | 1 | Physical | bit | transmission and reception of raw data streams over a physical medium | USB, Bluetooth, Ethernet physical layer, SMB, Telephone network modem |
 
 ### Internet Protocol Suite
+
 The Internet Protocol Suite is the conceptual model for the protocols used by the internet. It is often referred to as **TCP/IP** because the IP and TCP were the original protocols in the suite. The Internet Protocol Suite is described using four layers - Link, Internet, Transport, and Application. Web developers often reference the Internet Protocol Suite model when discussing network communication and data exchange.
 
 | Layer | Function | Examples |
-| ---- | ---- | ---- |
+| ----- | -------- | -------- |
 | Application | Provides high level data exchange for use in user application development |  HTTP, SMTP, FTP, DHCP |
 | Transport | Provides process to process data exchange | TCP, UDP, µTP|
 | Internet | Maintains computer addressing and identification and manages packet routing | IPv4, IPv6, ICMP |
 | Link layer | Used to move packets between two different hosts | MAC, ARP, DSL, Ethernet |
 
 ### [TCP](https://www.ietf.org/rfc/rfc793.txt)
+
 The Transmission Control Protocol (TCP) is widely used by application layer protocols in the Internet Protocol Suite. TCP creates a two way communication between two hosts and provides reliable, ordered, and error checked byte streams between the applications. TCP data transfers manage network congestion and use flow control to limit the rate a sender transfers data to guarantee reliable delivery. Each IP packet between the hosts carries a single TCP Segment. A TCP segment is made up of header and data sections.
 
-##### TCP HEADER
+#### TCP HEADER
+
 The TCP Header is used at each end to control the type of interaction being sent. It contains the following information:
 
-```
+```text
 Byte 0: Source port
 Byte 3: Destination port
 Byte 4: Sequence number
@@ -62,7 +68,7 @@ Byte 20: Options
 * a 16 bit `source port`
 * a 16 bit `destination port`
 * a 32 bit `sequence number` that sets the initial sequence number and manages the accumulated sequence number
-* if ACK is set it contains a 32 bit `acknowledgement number` that is the next sequence number that the sender is expecting. It is used for acknowledging the bytes it has so far received 
+* if ACK is set it contains a 32 bit `acknowledgement number` that is the next sequence number that the sender is expecting. It is used for acknowledging the bytes it has so far received
 * a 4 bit `data offset` specifies the size of the tcp header in 32 bit words.
 * 9 flag bits
   * `NS` - an experimental feature for a nonce sum - a nonce is a random cryptographic number used to prevent people from lying about who they are (authentication)
@@ -80,24 +86,26 @@ Byte 20: Options
 * a variable 0 to 320 bit (divisible by 32) `options` section
 
 ### Connection Establishment
+
 The client sends a SYN packet with an random initial sequence number. The server sends a SYN-ACK packet with the acknowledgment number set to one more than the initial sequence number. The client responds with an ACK and an acknowledgment number incremented by one.
 
-```
+```text
 CLIENT   SERVER
 ________________
 SYN    |
-       |   SYN-ACK
+       | SYN-ACK
 ACK    |
 ```
 
 ### Connection Termination
+
 One end sends a FIN Segment and the other sends an ACK segment followed by a FIN segment. The termination initiation will then respond with an ACK segment.
 
-```
+```text
 CLIENT   SERVER
 ________________
 FIN    |
-       |   ACK
-       |   FIN
+       | ACK
+       | FIN
 ACK    |
 ```
