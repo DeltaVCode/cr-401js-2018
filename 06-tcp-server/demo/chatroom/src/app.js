@@ -2,6 +2,7 @@
 
 const User = require('./models/user');
 const events = require('./lib/events');
+const { parser } = require('./lib/parser');
 const socketPool = require('./lib/socket-pool');
 const actions = require('./actions');
 
@@ -9,7 +10,8 @@ const net = require('net');
 const server = net.createServer();
 
 server.on('connection', function (socket) {
-  socket.write(`Hello, world!\r\n`);
+  const user = new User(socket);
+  socket.write(`Your user ID is ${user.id}!\r\n`);
 
   socket.line = '';
 
@@ -22,6 +24,11 @@ server.on('connection', function (socket) {
       return;
 
     console.log(socket.line);
+    parser(socket.line, (event, ...args) => {
+      // Emit chat event with current user plus args
+      events.emit(event, user, ...args);
+    });
+
     socket.line = '';
   });
 });
