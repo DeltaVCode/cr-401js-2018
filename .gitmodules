@@ -10,3 +10,6 @@
 [submodule "04-data-modeling-and-binary/demo/lab-demo"]
 	path = 04-data-modeling-and-binary/demo/lab-demo
 	url = https://github.com/DeltaVCode-cr-401js-2018/04-data-modeling-and-binary.git
+[submodule "07-vanilla-http-server/demo/vanilla-http-server"]
+	path = 07-vanilla-http-server/demo/vanilla-http-server
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
