@@ -13,3 +13,6 @@
 [submodule "07-vanilla-http-server/demo/vanilla-http-server"]
 	path = 07-vanilla-http-server/demo/vanilla-http-server
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "08-http-routing/demo/http-routing"]
+	path = 08-http-routing/demo/http-routing
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
