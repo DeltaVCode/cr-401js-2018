@@ -16,3 +16,6 @@
 [submodule "08-http-routing/demo/http-routing"]
 	path = 08-http-routing/demo/http-routing
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "09-rest-persistence/demo/storage"]
+	path = 09-rest-persistence/demo/storage
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
