@@ -16,6 +16,7 @@ describe('stack', () => {
     stack.push({ tree: true });
     expect(stack.toArray()).toEqual([{ tree: true }, 'dos', 1])
 
+
     expect(stack.count).toBe(3);
 
     expect(stack.peek()).toEqual({ tree: true });

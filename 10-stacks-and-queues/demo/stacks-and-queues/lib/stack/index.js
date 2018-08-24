@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./shift-unshift');
+module.exports = require('./push-pop');
