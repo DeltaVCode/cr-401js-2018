@@ -19,3 +19,6 @@
 [submodule "09-rest-persistence/demo/storage"]
 	path = 09-rest-persistence/demo/storage
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "11-express/demo/express"]
+	path = 11-express/demo/express
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
