@@ -22,3 +22,6 @@
 [submodule "11-express/demo/express"]
 	path = 11-express/demo/express
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "12-express-middleware/demo/express-middleware"]
+	path = 12-express-middleware/demo/express-middleware
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
