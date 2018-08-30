@@ -28,3 +28,6 @@
 [submodule "13-object-relational-mapping/demo/mongo"]
 	path = 13-object-relational-mapping/demo/mongo
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "14-relationship-modeling/demo/mongo-relationships"]
+	path = 14-relationship-modeling/demo/mongo-relationships
+	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
