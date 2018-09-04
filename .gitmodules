@@ -31,3 +31,6 @@
 [submodule "14-relationship-modeling/demo/mongo-relationships"]
 	path = 14-relationship-modeling/demo/mongo-relationships
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
+[submodule "16-basic-authentication/demo/basic-auth"]
+	path = 16-basic-authentication/demo/basic-auth
+	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
