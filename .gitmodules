@@ -37,3 +37,6 @@
 [submodule "17-bearer-authorization/demo/bearer-auth"]
 	path = 17-bearer-authorization/demo/bearer-auth
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
+[submodule "18-oauth/demo/oauth-server"]
+	path = 18-oauth/demo/oauth-server
+	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
