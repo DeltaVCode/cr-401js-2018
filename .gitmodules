@@ -40,3 +40,6 @@
 [submodule "18-oauth/demo/oauth-server"]
 	path = 18-oauth/demo/oauth-server
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
+[submodule "19-asset-management/demo/asset-management"]
+	path = 19-asset-management/demo/asset-management
+	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
