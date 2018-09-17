@@ -1,45 +1,45 @@
 [submodule "01-node-ecosystem/demo/00-demo"]
-	path = 01-node-ecosystem/demo/00-demo
+	path = BACKEND/01-node-ecosystem/demo/00-demo
 	url = https://github.com/DeltaVCode-cr-401js-2018/00-demo.git
 [submodule ".\\02-tools-and-context\\demo\\list"]
 	path = .\\02-tools-and-context\\demo\\list
 	url = https://github.com/DeltaVCode-cr-401js-2018/02-tools-and-context.git
 [submodule "03-asynchronous-callbacks/demo/lab-demo"]
-	path = 03-asynchronous-callbacks/demo/lab-demo
+	path = BACKEND/03-asynchronous-callbacks/demo/lab-demo
 	url = https://github.com/DeltaVCode-cr-401js-2018/03-asynchronous-callbacks.git
 [submodule "04-data-modeling-and-binary/demo/lab-demo"]
-	path = 04-data-modeling-and-binary/demo/lab-demo
+	path = BACKEND/04-data-modeling-and-binary/demo/lab-demo
 	url = https://github.com/DeltaVCode-cr-401js-2018/04-data-modeling-and-binary.git
 [submodule "07-vanilla-http-server/demo/vanilla-http-server"]
-	path = 07-vanilla-http-server/demo/vanilla-http-server
+	path = BACKEND/07-vanilla-http-server/demo/vanilla-http-server
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "08-http-routing/demo/http-routing"]
-	path = 08-http-routing/demo/http-routing
+	path = BACKEND/08-http-routing/demo/http-routing
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "09-rest-persistence/demo/storage"]
-	path = 09-rest-persistence/demo/storage
+	path = BACKEND/09-rest-persistence/demo/storage
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "11-express/demo/express"]
-	path = 11-express/demo/express
+	path = BACKEND/11-express/demo/express
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "12-express-middleware/demo/express-middleware"]
-	path = 12-express-middleware/demo/express-middleware
+	path = BACKEND/12-express-middleware/demo/express-middleware
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "13-object-relational-mapping/demo/mongo"]
-	path = 13-object-relational-mapping/demo/mongo
+	path = BACKEND/13-object-relational-mapping/demo/mongo
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "14-relationship-modeling/demo/mongo-relationships"]
-	path = 14-relationship-modeling/demo/mongo-relationships
+	path = BACKEND/14-relationship-modeling/demo/mongo-relationships
 	url = https://github.com/DeltaVCode-cr-401js-2018/07-vanilla-http-server.git
 [submodule "16-basic-authentication/demo/basic-auth"]
-	path = 16-basic-authentication/demo/basic-auth
+	path = BACKEND/16-basic-authentication/demo/basic-auth
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
 [submodule "17-bearer-authorization/demo/bearer-auth"]
-	path = 17-bearer-authorization/demo/bearer-auth
+	path = BACKEND/17-bearer-authorization/demo/bearer-auth
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
 [submodule "18-oauth/demo/oauth-server"]
-	path = 18-oauth/demo/oauth-server
+	path = BACKEND/18-oauth/demo/oauth-server
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
 [submodule "19-asset-management/demo/asset-management"]
-	path = 19-asset-management/demo/asset-management
+	path = BACKEND/19-asset-management/demo/asset-management
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
