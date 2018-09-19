@@ -18,8 +18,8 @@ export default class ExpenseForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    // TODO: actually save the expense
     console.log('saving', this.state)
+    this.props.handleAddExpense(this.state);
 
     // Reset form
     this.setState(defaultState);
@@ -61,7 +61,15 @@ export default class ExpenseForm extends Component {
           onChange={this.handleChange}
           />
         <button type="submit">Create Expense</button>
+        <button onClick={this.addParking}>Add Parking ($7.50)</button>
       </form>
     );
+  }
+
+  addParking = () => {
+    this.props.handleAddExpense({
+      title: 'Parking',
+      price: 7.50,
+    });
   }
 }
