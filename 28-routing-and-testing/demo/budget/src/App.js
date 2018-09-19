@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
 
+import Dashboard from './components/dashboard/dashboard';
+
 class App extends Component {
   render() {
     return (
@@ -22,9 +24,15 @@ class App extends Component {
               component={() => <h1>Home</h1>} />
 
             <Route exact path="/dashboard"
-              component={() => <h1>Dashboard</h1>} />
+              component={() => <Dashboard test="prop" />} />
           </main>
 
+          <footer>
+            &copy; 2018 DeltaV
+
+            <Route path="/dashboard"
+              component={() => <p>This is a dashboard-only footer</p>} />
+          </footer>
         </div>
       </BrowserRouter>
     );
