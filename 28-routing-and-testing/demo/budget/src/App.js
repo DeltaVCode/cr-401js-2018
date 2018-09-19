@@ -24,7 +24,7 @@ class App extends Component {
               component={() => <h1>Home</h1>} />
 
             <Route exact path="/dashboard"
-              component={() => <Dashboard test="prop" />} />
+              component={Dashboard} />
           </main>
 
           <footer>
