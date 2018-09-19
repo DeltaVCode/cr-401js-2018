@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 
+import ExpenseForm from '../expense-form/expense-form';
+
 export default class Dashboard extends Component {
   constructor(props){
     super(props);
@@ -29,7 +31,8 @@ export default class Dashboard extends Component {
     return (
       <React.Fragment>
         <h1>Dashboard Component</h1>
-        <p>{this.props.test}</p>
+
+        <ExpenseForm />
 
         { this.renderExpenseList() }
       </React.Fragment>
