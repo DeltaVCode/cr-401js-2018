@@ -33,7 +33,6 @@ class App extends React.Component {
     }
     this.handleUp = this.handleUp.bind(this);
     this.handleDown = this.handleDown.bind(this);
-    this.updateState = this.updateState.bind(this);
   }
 
   //handleUp() { Incorrect - Cannot modify state directly
@@ -41,18 +40,29 @@ class App extends React.Component {
   //}
 
   handleUp() {
-    this.updateState(this.state.counter + 1);
+    // Incorrect - should not update state based on this.state
+    // this.updateState(this.state.counter + 1);
+
+    this.addToCounter(1);
   }
 
   handleDown() {
-    this.updateState(this.state.counter -1);
+    this.addToCounter(-1);
   }
 
-  updateState(counter) {
-    let polarity = null;
-    if (counter > 0) { polarity = "positive" }
-    if (counter < 0) { polarity = "negative" }
-    this.setState({counter, polarity});
+  addToCounter(addThis) {
+    // Use setState with a function to update based on prevState
+    this.setState(prevState => {
+      var counter = prevState.counter + addThis;
+
+      return {
+        counter,
+        polarity:
+          counter < 0 ? 'negative' :
+          counter > 0 ? 'positive' :
+          null,
+      };
+    });
   }
 
   render() {
