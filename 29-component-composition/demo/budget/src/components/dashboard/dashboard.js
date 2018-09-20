@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 
 import ExpenseForm from '../expense-form/expense-form';
+import ExpenseList from '../expense-list/expense-list';
 
 export default class Dashboard extends Component {
   constructor(props){
@@ -47,29 +48,6 @@ export default class Dashboard extends Component {
 
         <ExpenseList expenses={this.state.expenses} />
       </React.Fragment>
-    );
-  }
-}
-
-class ExpenseList extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.expenses.map(expense => (
-          <ExpenseItem expense={expense} />
-        ))}
-      </ul>
-    );
-  }
-}
-
-class ExpenseItem extends Component {
-  render() {
-    const { expense } = this.props;
-    return (
-      <li key={expense._id}>
-        {expense.title} : ${expense.price.toFixed(2)}
-      </li>
     );
   }
 }
