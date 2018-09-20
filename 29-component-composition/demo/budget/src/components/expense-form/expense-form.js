@@ -10,7 +10,11 @@ export default class ExpenseForm extends Component {
     super(props);
 
     // Initialize form
-    this.state = defaultState;
+    this.state = props.expense || defaultState;
+  }
+
+  componentDidUpdate() {
+    console.log('__STATE__', this.state);
   }
 
   // Note this is not handleSubmit(event)
@@ -19,10 +23,13 @@ export default class ExpenseForm extends Component {
     event.preventDefault();
 
     console.log('saving', this.state)
-    this.props.handleAddExpense(this.state);
+    this.props.handleComplete(this.state);
 
-    // Reset form
-    this.setState(defaultState);
+    // Reset insert form
+    if (!this.props.expense) {
+      this.setState(defaultState);
+    }
+    // this.setState(this.props.expense ? this.state : defaultState);
   }
 
   handleChange = (event) => {
@@ -60,8 +67,23 @@ export default class ExpenseForm extends Component {
           value={this.state.price}
           onChange={this.handleChange}
           />
-        <button type="submit">Create Expense</button>
-        <button onClick={this.addParking}>Add Parking ($7.50)</button>
+        <button type="submit">
+          {this.props.expense ? 'Update' : 'Create'}
+          {' '}{/* <= this is how you insert an actual space in HTML */}
+          Expense
+
+          {/*
+            // Or we could receive the text as a prop
+            this.props.buttonText
+          */}
+        </button>
+        {
+          // this.props.expense ? null : <button />
+          // this.props.expense ? false : <button />
+          // this.props.expense ? '' : <button />
+          !this.props.expense &&
+            <button onClick={this.addParking}>Add Parking ($7.50)</button>
+        }
       </form>
     );
   }

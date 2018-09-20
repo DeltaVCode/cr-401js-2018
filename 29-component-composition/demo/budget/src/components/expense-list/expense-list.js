@@ -7,7 +7,11 @@ export default class ExpenseList extends Component {
     return (
       <ul>
         {this.props.expenses.map(expense => (
-          <ExpenseItem expense={expense} />
+          <ExpenseItem
+            key={expense._id}
+            expense={expense}
+            handleUpdateExpense={this.props.handleUpdateExpense}
+            />
         ))}
       </ul>
     );

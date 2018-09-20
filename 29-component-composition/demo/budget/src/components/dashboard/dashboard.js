@@ -35,6 +35,21 @@ export default class Dashboard extends Component {
     }));
   }
 
+  handleUpdateExpense = (expense) => {
+    console.log('updating expense', expense);
+
+    if (!expense.title) {
+      return this.setState({ error: 'title is required' });
+    }
+
+    expense.updatedOn = new Date();
+    this.setState(prevState => ({
+      expenses: prevState.expenses.map(e =>
+        e._id === expense._id ? expense : e),
+      error: null,
+    }));
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -43,10 +58,13 @@ export default class Dashboard extends Component {
           <div className='error'>{this.state.error}</div>}
 
         <ExpenseForm
-          handleAddExpense={this.handleAddExpense}
+          handleComplete={this.handleAddExpense}
           />
 
-        <ExpenseList expenses={this.state.expenses} />
+        <ExpenseList
+          expenses={this.state.expenses}
+          handleUpdateExpense={this.handleUpdateExpense}
+          />
       </React.Fragment>
     );
   }
