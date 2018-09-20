@@ -66,8 +66,9 @@ export default class ExpenseForm extends Component {
     );
   }
 
-  addParking = () => {
-    this.props.handleAddExpense({
+  addParking = (event) => {
+    event.preventDefault();
+    this.props.handleComplete({
       title: 'Parking',
       price: 7.50,
     });
