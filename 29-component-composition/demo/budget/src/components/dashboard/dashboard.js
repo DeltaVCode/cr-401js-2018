@@ -15,18 +15,6 @@ export default class Dashboard extends Component {
     };
   }
 
-  renderExpenseList() {
-    return (
-      <ul>
-        {this.state.expenses.map(expense => (
-          <li key={expense._id}>
-            {expense.title} : ${expense.price.toFixed(2)}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   handleAddExpense = (expense) => {
     console.log('saving expense', expense);
 
@@ -57,8 +45,31 @@ export default class Dashboard extends Component {
           handleAddExpense={this.handleAddExpense}
           />
 
-        { this.renderExpenseList() }
+        <ExpenseList expenses={this.state.expenses} />
       </React.Fragment>
+    );
+  }
+}
+
+class ExpenseList extends Component {
+  render() {
+    return (
+      <ul>
+        {this.props.expenses.map(expense => (
+          <ExpenseItem expense={expense} />
+        ))}
+      </ul>
+    );
+  }
+}
+
+class ExpenseItem extends Component {
+  render() {
+    const { expense } = this.props;
+    return (
+      <li key={expense._id}>
+        {expense.title} : ${expense.price.toFixed(2)}
+      </li>
     );
   }
 }
