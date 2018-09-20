@@ -1,0 +1,20 @@
+.modal {
+  border: 2px solid green;
+}
+
+.modal main {
+  background-color: teal;
+  border-radius: 10px;
+}
+
+.modal button.modal-close {
+  float: right;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
