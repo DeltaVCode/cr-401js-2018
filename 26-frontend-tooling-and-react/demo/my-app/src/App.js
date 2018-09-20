@@ -42,7 +42,7 @@ class App extends React.Component {
   handleUp() {
     // Incorrect - should not update state based on this.state
     // this.updateState(this.state.counter + 1);
-
+ 
     this.addToCounter(1);
   }
 
