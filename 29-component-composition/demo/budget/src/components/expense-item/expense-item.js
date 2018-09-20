@@ -12,6 +12,7 @@ export default class ExpenseItem extends Component {
 
   updateExpense = (expense) => {
     this.props.handleUpdateExpense(expense);
+    this.hideEditModal();
   }
 
   showEditModal = () => {
@@ -34,7 +35,8 @@ export default class ExpenseItem extends Component {
 
         <button onClick={this.showEditModal}>Edit</button>
 
-        <Modal show={this.state.showEdit} handleClose={this.hideEditModal}>
+        <Modal title="Edit Expense" show={this.state.showEdit} handleClose={this.hideEditModal}>
+          <p>Updating a posted expense is a felony!</p>
           <ExpenseForm
             buttonText='Update Expense (not used)'
             expense={expense}
