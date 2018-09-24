@@ -2,11 +2,24 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
 
+import { Provider } from 'react-redux';
+import createAppStore from './lib/store';
+
 import Dashboard from './components/dashboard/dashboard';
 
+const store = createAppStore();
+
+
 class App extends Component {
+  componentDidMount() {
+    store.subscribe(() => {
+      console.log('__STATE__', store.getState());
+    });
+  }
+
   render() {
-    return (
+    // make our Redux store available to my children
+    return (<Provider store={store}>
       <BrowserRouter>
         <div className="App">
 
@@ -35,7 +48,7 @@ class App extends Component {
           </footer>
         </div>
       </BrowserRouter>
-    );
+    </Provider>);
   }
 }
 
