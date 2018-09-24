@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import uuid from 'uuid';
 
 import ExpenseForm from '../expense-form/expense-form';
 import ExpenseList from '../expense-list/expense-list';
 
-export default class Dashboard extends Component {
+class DashboardContainer extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      expenses: [
-        { _id: uuid(), title: 'Test Expense', price: 2.5 },
-      ],
       error: null,
     };
   }
@@ -26,11 +24,11 @@ export default class Dashboard extends Component {
 
     expense._id = uuid();
     expense.createdOn = new Date();
-    // Add new expense to the end of existing list
-    // NEVER MUTATE STATE, e.g. this.state.expenses.push(...)
-    this.setState(prevState => ({
-      expenses: [...prevState.expenses, expense],
-      // expenses: prevState.expenses.concat([expense]),
+
+    // Dispatch EXPENSE_ADD to Redux
+    this.props.expenseAdd(expense);
+
+    this.setState(({
       error: null,
     }));
   }
@@ -43,9 +41,11 @@ export default class Dashboard extends Component {
     }
 
     expense.updatedOn = new Date();
-    this.setState(prevState => ({
-      expenses: prevState.expenses.map(e =>
-        e._id === expense._id ? expense : e),
+
+    // Dispatch EXPENSE_ADD to Redux
+    this.props.expenseUpdate(expense);
+
+    this.setState(({
       error: null,
     }));
   }
@@ -62,10 +62,24 @@ export default class Dashboard extends Component {
           />
 
         <ExpenseList
-          expenses={this.state.expenses}
+          expenses={this.props.expenses}
           handleUpdateExpense={this.handleUpdateExpense}
           />
       </React.Fragment>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    expenses: state.expenses,
+  };
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  expenseAdd: (expense) => dispatch({ type: 'EXPENSE_ADD', payload: expense }),
+  expenseUpdate: (expense) => dispatch({ type: 'EXPENSE_UPDATE', payload: expense }),
+});
+
+var connector = connect(mapStateToProps, mapDispatchToProps);
+export default connector(DashboardContainer);

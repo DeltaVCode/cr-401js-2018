@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import uuid from 'uuid';
 import './App.css';
 
 import { Provider } from 'react-redux';
@@ -15,6 +16,13 @@ class App extends Component {
     store.subscribe(() => {
       console.log('__STATE__', store.getState());
     });
+
+    setTimeout(() => {
+      store.dispatch({
+        type: 'EXPENSE_ADD',
+        payload: { _id: uuid(), title: 'Test Expense', price: 2.5 },
+      })
+    }, 2000);
   }
 
   render() {
