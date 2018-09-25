@@ -7,20 +7,20 @@ import ExpenseList from '../expense-list/expense-list';
 import * as actions from '../../action/expense-actions';
 import * as errorActions from '../../action/error-actions';
 
-const DashboardContainer = (props) =>
+const DashboardContainer = ({ expenses, expenseAdd, expenseUpdate, error }) =>
     (
       <React.Fragment>
         <h1>Dashboard Component</h1>
-        {props.error &&
-          <div className='error'>{props.error}</div>}
+        {error &&
+          <div className='error'>{error}</div>}
 
         <ExpenseForm
-          handleComplete={props.expenseAdd}
+          handleComplete={expenseAdd}
           />
 
         <ExpenseList
-          expenses={props.expenses}
-          handleUpdateExpense={props.expenseUpdate}
+          expenses={expenses}
+          handleUpdateExpense={expenseUpdate}
           />
       </React.Fragment>
     );
