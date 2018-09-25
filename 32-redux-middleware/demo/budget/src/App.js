@@ -13,12 +13,22 @@ const store = createAppStore();
 
 class App extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      store.dispatch({
+    store.dispatch(
+      promiseLater({
         type: 'EXPENSE_ADD',
         payload: { _id: uuid(), title: 'Test Expense', price: 2.5 },
-      })
-    }, 2000);
+      }, 5000)
+    );
+    // real world:
+    /*
+      store.dispatch(
+        superagent.get()
+          .then(result => ({
+            type: ...,
+            payload: // from result
+          })
+      )
+    */
   }
 
   render() {
@@ -57,3 +67,8 @@ class App extends Component {
 }
 
 export default App;
+
+const promiseLater = (result, timeout) =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(result), timeout);
+  });
