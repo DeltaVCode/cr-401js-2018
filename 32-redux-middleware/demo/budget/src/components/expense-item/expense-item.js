@@ -1,49 +1,41 @@
 import React, { Component } from 'react';
+import { withRouter, Route, Link } from 'react-router-dom';
 
 import ExpenseForm from '../expense-form/expense-form';
 import Modal from '../modal/modal';
 
-export default class ExpenseItem extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { showEdit: false };
-  }
-
-  updateExpense = (expense) => {
-    this.props.handleUpdateExpense(expense);
-    this.hideEditModal();
-  }
-
-  showEditModal = () => {
-    // NEVER UPDATE state DIRECTLY
-    // this.state.showEdit = true;
-    this.setState({
-      showEdit: true,
-    });
-  }
-
-  hideEditModal = () => {
-    this.setState({ showEdit: false });
-  }
-
+class ExpenseItem extends Component {
   render() {
-    const { expense } = this.props;
+    // Verify we got routing details via withRouter
+    // console.log('__PROPS__', this.props);
+    const { expense, match, history } = this.props;
+
+    const editLink = `${match.url}/expenses/${expense._id}/edit`;
+    const navigateBack = () => history.push(match.url);
+
+    const updateExpense = (expense) => {
+      this.props.handleUpdateExpense(expense);
+      navigateBack();
+    }
+
     return (
       <li>
         {expense.title} : ${expense.price.toFixed(2)}
 
-        <button onClick={this.showEditModal}>Edit</button>
+        <Link to={editLink}>Edit</Link>
 
-        <Modal title="Edit Expense" show={this.state.showEdit} handleClose={this.hideEditModal}>
-          <p>Updating a posted expense is a felony!</p>
-          <ExpenseForm
-            buttonText='Update Expense (not used)'
-            expense={expense}
-            handleComplete={this.updateExpense}
-            />
-        </Modal>
+        <Route exact path={editLink} component= {() =>
+          <Modal title="Edit Expense" show={true} handleClose={navigateBack}>
+            <p>Updating a posted expense is a felony!</p>
+            <ExpenseForm
+              buttonText='Update Expense (not used)'
+              expense={expense}
+              handleComplete={updateExpense}
+              />
+          </Modal>} />
       </li>
     );
   }
 }
+
+export default withRouter(ExpenseItem);

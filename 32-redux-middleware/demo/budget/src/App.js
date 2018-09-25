@@ -50,7 +50,7 @@ class App extends Component {
             <Route exact path="/"
               component={() => <h1>Home</h1>} />
 
-            <Route exact path="/dashboard"
+            <Route path="/dashboard"
               component={Dashboard} />
           </main>
 
