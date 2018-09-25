@@ -8,35 +8,6 @@ import * as actions from '../../action/expense-actions';
 import * as errorActions from '../../action/error-actions';
 
 class DashboardContainer extends Component {
-  handleAddExpense = (expense) => {
-    console.log('saving expense', expense);
-
-    if (!expense.title) {
-      this.props.validationError('title is required');
-      return;
-    }
-
-    // Dispatch CLEAR_ERROR to Redux
-    this.props.clearError();
-
-    // Dispatch EXPENSE_ADD to Redux
-    this.props.expenseAdd(expense);
-  }
-
-  handleUpdateExpense = (expense) => {
-    console.log('updating expense', expense);
-
-    if (!expense.title) {
-      return this.props.validationError('title is required');
-    }
-
-    // Dispatch CLEAR_ERROR to Redux
-    this.props.clearError();
-
-    // Dispatch EXPENSE_ADD to Redux
-    this.props.expenseUpdate(expense);
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -45,12 +16,12 @@ class DashboardContainer extends Component {
           <div className='error'>{this.props.error}</div>}
 
         <ExpenseForm
-          handleComplete={this.handleAddExpense}
+          handleComplete={this.props.expenseAdd}
           />
 
         <ExpenseList
           expenses={this.props.expenses}
-          handleUpdateExpense={this.handleUpdateExpense}
+          handleUpdateExpense={this.props.expenseUpdate}
           />
       </React.Fragment>
     );
