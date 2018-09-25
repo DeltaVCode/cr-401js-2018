@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import ExpenseForm from '../expense-form/expense-form';
@@ -7,26 +7,23 @@ import ExpenseList from '../expense-list/expense-list';
 import * as actions from '../../action/expense-actions';
 import * as errorActions from '../../action/error-actions';
 
-class DashboardContainer extends Component {
-  render() {
-    return (
+const DashboardContainer = (props) =>
+    (
       <React.Fragment>
         <h1>Dashboard Component</h1>
-        {this.props.error &&
-          <div className='error'>{this.props.error}</div>}
+        {props.error &&
+          <div className='error'>{props.error}</div>}
 
         <ExpenseForm
-          handleComplete={this.props.expenseAdd}
+          handleComplete={props.expenseAdd}
           />
 
         <ExpenseList
-          expenses={this.props.expenses}
-          handleUpdateExpense={this.props.expenseUpdate}
+          expenses={props.expenses}
+          handleUpdateExpense={props.expenseUpdate}
           />
       </React.Fragment>
     );
-  }
-}
 
 const mapStateToProps = (state) => {
   return {
