@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import uuid from 'uuid';
 
 import ExpenseForm from '../expense-form/expense-form';
 import ExpenseList from '../expense-list/expense-list';
+
+import * as actions from '../../action/expense-actions';
 
 class DashboardContainer extends Component {
   constructor(props){
@@ -22,9 +23,6 @@ class DashboardContainer extends Component {
       return;
     }
 
-    expense._id = uuid();
-    expense.createdOn = new Date();
-
     // Dispatch EXPENSE_ADD to Redux
     this.props.expenseAdd(expense);
 
@@ -39,8 +37,6 @@ class DashboardContainer extends Component {
     if (!expense.title) {
       return this.setState({ error: 'title is required' });
     }
-
-    expense.updatedOn = new Date();
 
     // Dispatch EXPENSE_ADD to Redux
     this.props.expenseUpdate(expense);
@@ -77,8 +73,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  expenseAdd: (expense) => dispatch({ type: 'EXPENSE_ADD', payload: expense }),
-  expenseUpdate: (expense) => dispatch({ type: 'EXPENSE_UPDATE', payload: expense }),
+  expenseAdd: (expense) => dispatch(actions.expenseAdd(expense)),
+  expenseUpdate: (expense) => dispatch(actions.expenseUpdate(expense)),
 });
 
 var connector = connect(mapStateToProps, mapDispatchToProps);
