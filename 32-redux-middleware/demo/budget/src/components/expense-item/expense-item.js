@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter, Route, Link } from 'react-router-dom';
 
 import ExpenseForm from '../expense-form/expense-form';
 import Modal from '../modal/modal';
 
-class ExpenseItem extends Component {
-  render() {
+const ExpenseItem = (props) => {
     // Verify we got routing details via withRouter
-    // console.log('__PROPS__', this.props);
-    const { expense, match, history } = this.props;
+    // console.log('__PROPS__', props);
+    const { expense, match, history } = props;
 
     const editLink = `${match.url}/expenses/${expense._id}/edit`;
     const navigateBack = () => history.push(match.url);
 
     const updateExpense = (expense) => {
-      this.props.handleUpdateExpense(expense);
+      props.handleUpdateExpense(expense);
       navigateBack();
     }
 
@@ -24,7 +23,7 @@ class ExpenseItem extends Component {
 
         <Link to={editLink}>Edit</Link>
 
-        <Route exact path={editLink} component= {() =>
+        <Route exact path={editLink} render={() =>
           <Modal title="Edit Expense" show={true} handleClose={navigateBack}>
             <p>Updating a posted expense is a felony!</p>
             <ExpenseForm
@@ -35,7 +34,6 @@ class ExpenseItem extends Component {
           </Modal>} />
       </li>
     );
-  }
-}
+  };
 
 export default withRouter(ExpenseItem);
