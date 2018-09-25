@@ -14,7 +14,7 @@ export default class ExpenseForm extends Component {
   }
 
   componentDidUpdate() {
-    console.log('__STATE__', this.state);
+    console.log('__FORM_STATE__', this.state);
   }
 
   // Note this is not handleSubmit(event)

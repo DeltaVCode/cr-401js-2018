@@ -13,10 +13,6 @@ const store = createAppStore();
 
 class App extends Component {
   componentDidMount() {
-    store.subscribe(() => {
-      console.log('__STATE__', store.getState());
-    });
-
     setTimeout(() => {
       store.dispatch({
         type: 'EXPENSE_ADD',
