@@ -1,0 +1,21 @@
+body {
+  background-color: blue;
+
+  div {
+    background-color: gray;
+
+    /* Don't nest beyond 2, *maybe* 3 levels deep */
+    nav {
+      background-color: white;
+
+      ul {
+        background-color: pink;
+
+        /* generated selector: body div nav ul li */
+        li {
+          background-color: lightgreen;
+        }
+      }
+    }
+  }
+}
