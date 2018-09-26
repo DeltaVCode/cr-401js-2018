@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import uuid from 'uuid';
-import './App.css';
+import './App.scss';
 
 import { Provider } from 'react-redux';
 import createAppStore from './lib/store';
