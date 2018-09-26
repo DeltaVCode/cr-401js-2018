@@ -20,13 +20,15 @@ export default (state = initialState, action = {}) => {
           exp.categoryID !== payload._id);
 
       // or remove references to the category
+      /*
       return state.map(exp => {
         if (exp.categoryID === payload._id) {
           exp = {...exp}; // clone exp to remove its category
           exp.categoryID = null;
         }
         return exp;
-      }
+      });
+      */
 
     default:
       return state;
