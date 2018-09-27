@@ -67,7 +67,7 @@ export default class ExpenseForm extends Component {
           value={this.state.price}
           onChange={this.handleChange}
           />
-        <button type="submit">
+        <button type="submit" className="first-form-button">
           {this.props.expense ? 'Update' : 'Create'}
           {' '}{/* <= this is how you insert an actual space in HTML */}
           Expense

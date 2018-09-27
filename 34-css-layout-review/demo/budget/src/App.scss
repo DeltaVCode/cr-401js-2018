@@ -1,21 +1,159 @@
+html,
+body,
+ul,
+ol,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: #333;
+  font-size: 4vw;
+  background-color: rgba(144, 178, 166, 1);
+}
+
 body {
-  background-color: blue;
+  padding-bottom: 200px;
+}
 
-  div {
-    background-color: gray;
+header {
+  padding: 30px;
+  background-color: rgba(255,255,255,0.5);
+}
 
-    /* Don't nest beyond 2, *maybe* 3 levels deep */
-    nav {
-      background-color: white;
+nav li {
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 30px;
+}
 
-      ul {
-        background-color: pink;
+nav li:first-child {
+  margin-left: 0;
+}
 
-        /* generated selector: body div nav ul li */
-        li {
-          background-color: lightgreen;
-        }
-      }
-    }
+main {
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 3vw;
+  color: #ececec;
+}
+
+form {
+  padding: 30px;
+  border-radius: 10px;
+  border: solid 5px rgba(0,0,0,0.5);
+  background-color: #ececec;
+  box-sizing: border-box;
+}
+
+input {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 0.5rem;
+}
+
+input[type="text"] {
+  width: 70%;
+}
+
+input[type="number"] {
+  width: 30%;
+  padding-right: 0;
+}
+
+form button {
+  margin-top: 15px;
+}
+
+button,
+.button {
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #ececec;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: .7rem;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(147, 191, 216, 1);
+  transition: all 250ms ease;
+}
+
+button:hover,
+.button:hover {
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+  background-color: rgba(108, 156, 193, 1);
+}
+
+.expenses li {
+  margin-top: 5px;
+  padding: 5px 10px;
+  list-style-position: inside;
+  transition: all 250ms ease;
+  position: relative;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+
+.expenses .button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 5px 15px;
+  width: auto;
+}
+
+footer {
+  position:fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 30px;
+  background-color: #333;
+  color: #ececec;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 2vh;
+  }
+  form {
+    float: left;
+    width: calc(50% - 20px);
+  }
+  button {
+    font-size: .5rem;
+  }
+  .expenses {
+    float: right;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  input[type="text"] {
+    width: 45%;
+  }
+  input[type="number"] {
+    width: 25%;
+  }
+  .first-form-button {
+    width: 30%;
+    display: inline-block;
+    margin-top: 0;
+    padding: 13px 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }

@@ -21,7 +21,7 @@ const ExpenseItem = (props) => {
       <li>
         {expense.title} : ${expense.price.toFixed(2)}
 
-        <Link to={editLink}>Edit</Link>
+        <Link to={editLink} className="button">Edit</Link>
 
         <Route exact path={editLink} render={() =>
           <Modal title="Edit Expense" show={true} handleClose={navigateBack}>

@@ -5,7 +5,7 @@ import ExpenseItem from '../expense-item/expense-item';
 export default class ExpenseList extends Component {
   render() {
     return (
-      <ul>
+      <ol className="expenses">
         {this.props.expenses.map(expense => (
           <ExpenseItem
             key={expense._id}
@@ -13,7 +13,7 @@ export default class ExpenseList extends Component {
             handleUpdateExpense={this.props.handleUpdateExpense}
             />
         ))}
-      </ul>
+      </ol>
     );
   }
 }
