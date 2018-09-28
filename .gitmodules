@@ -43,3 +43,7 @@
 [submodule "19-asset-management/demo/asset-management"]
 	path = BACKEND/19-asset-management/demo/asset-management
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
+[submodule "35-sorting-algorithms/class-review"]
+	path = 35-sorting-algorithms/class-review
+	url = https://github.com/DeltaVCode-cr-401js-2018/31-redux.git
+	branch = day-35-class-review
