@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as listActions from '../../actions/lists';
 
 class DashboardContainer extends React.Component {
+  componentWillMount() {
+    console.log('componentWillMount');
+    this.props.listsFetch();
+  }
+
   render() {
     const { lists } = this.props;
 
@@ -26,6 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  listsFetch: () => dispatch(listActions.listFetch()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
