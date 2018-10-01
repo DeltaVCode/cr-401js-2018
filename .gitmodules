@@ -47,3 +47,7 @@
 	path = 35-sorting-algorithms/class-review
 	url = https://github.com/DeltaVCode-cr-401js-2018/31-redux.git
 	branch = day-35-class-review
+[submodule ".\\36-asynchronous-actions\\demo\\backend"]
+	path = .\\36-asynchronous-actions\\demo\\backend
+	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
+	branch = class-demo-aws-deployment
