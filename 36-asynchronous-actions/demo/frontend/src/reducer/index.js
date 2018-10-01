@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import lists from './lists';
+
 export default combineReducers({
-  empty: (state={}, action) => state, // TODO: remove me
+  lists,
 });
