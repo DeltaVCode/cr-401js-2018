@@ -7,14 +7,15 @@ import ExpenseList from '../expense-list/expense-list';
 import * as actions from '../../action/expense-actions';
 import * as errorActions from '../../action/error-actions';
 
-const DashboardContainer = ({ expenses, expenseAdd, expenseUpdate, error }) =>
+const DashboardContainer = ({ category, expenses, expenseAdd, expenseUpdate, error }) =>
     (
       <React.Fragment>
-        <h1>Dashboard Component</h1>
+        <h1>{category ? `${category.title} Expenses` : 'All Expenses'}</h1>
         {error &&
           <div className='error'>{error}</div>}
 
         <ExpenseForm
+          categoryId={category && category._id}
           handleComplete={expenseAdd}
           />
 
@@ -25,9 +26,14 @@ const DashboardContainer = ({ expenses, expenseAdd, expenseUpdate, error }) =>
       </React.Fragment>
     );
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  console.log({...ownProps});
+  const { params } = ownProps.match;
   return {
-    expenses: state.expenses,
+    category: state.categories.find(cat => cat._id === params.id),
+    expenses: params.id ?
+      state.expenses.filter(exp => exp.categoryId === params.id) :
+      state.expenses,
     error: state.error,
   };
 }

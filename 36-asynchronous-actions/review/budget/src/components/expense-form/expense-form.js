@@ -23,7 +23,10 @@ export default class ExpenseForm extends Component {
     event.preventDefault();
 
     console.log('saving', this.state)
-    this.props.handleComplete(this.state);
+    this.props.handleComplete({
+      ...this.state,
+      categoryId: this.props.categoryId,
+    });
 
     // Reset insert form
     if (!this.props.expense) {
@@ -93,6 +96,7 @@ export default class ExpenseForm extends Component {
     this.props.handleComplete({
       title: 'Parking',
       price: 7.50,
+      categoryId: this.props.categoryId,
     });
   }
 }
