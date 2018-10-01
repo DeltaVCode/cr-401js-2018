@@ -1,4 +1,10 @@
 export default store => next => action => {
+
+  // redux-thunk
+  if (typeof action === 'function') {
+    return action(store.dispatch, store.getState);
+  }
+
   if (typeof action.then === 'function') {
     action
       .then(res => store.dispatch(res))
