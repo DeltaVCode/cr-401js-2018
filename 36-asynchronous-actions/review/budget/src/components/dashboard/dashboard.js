@@ -9,6 +9,7 @@ import * as errorActions from '../../action/error-actions';
 
 const DashboardContainer = ({ category, expenses, expenseAdd, expenseUpdate, error }) =>
     (
+      category === null ? <h1>Not Found</h1> :
       <React.Fragment>
         <h1>{category ? `${category.title} Expenses` : 'All Expenses'}</h1>
         {error &&
@@ -30,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log({...ownProps});
   const { params } = ownProps.match;
   return {
-    category: state.categories.find(cat => cat._id === params.id),
+    category: params.id && (state.categories.find(cat => cat._id === params.id) || null),
     expenses: params.id ?
       state.expenses.filter(exp => exp.categoryId === params.id) :
       state.expenses,
