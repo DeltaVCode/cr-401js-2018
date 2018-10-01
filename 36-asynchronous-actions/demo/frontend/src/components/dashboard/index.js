@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import * as listActions from '../../actions/lists';
 
 class DashboardContainer extends React.Component {
-  componentWillMount() {
-    console.log('componentWillMount');
+  componentDidMount() {
+    console.log('componentDidMount');
     this.props.listsFetch();
   }
 
