@@ -6,6 +6,7 @@ import './App.scss';
 import { Provider } from 'react-redux';
 import createAppStore from './lib/store';
 
+import Home from './components/home';
 import Dashboard from './components/dashboard/dashboard';
 
 const store = createAppStore();
@@ -48,7 +49,7 @@ class App extends Component {
 
           <main>
             <Route exact path="/"
-              component={() => <h1>Home</h1>} />
+              component={Home} />
 
             <Route path="/dashboard"
               component={Dashboard} />
