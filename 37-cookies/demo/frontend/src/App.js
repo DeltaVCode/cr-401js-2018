@@ -12,9 +12,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
           <Route exact path="/" component={Dashboard} />
-        </p>
+        </div>
       </div>
     );
   }
