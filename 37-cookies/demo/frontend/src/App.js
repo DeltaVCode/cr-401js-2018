@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Dashboard from './components/dashboard';
 
 class App extends Component {
