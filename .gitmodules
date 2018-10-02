@@ -51,3 +51,6 @@
 	path = .\\36-asynchronous-actions\\demo\\backend
 	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
 	branch = class-demo-aws-deployment
+[submodule "37-cookies/demo/backend"]
+	path = 37-cookies/demo/backend
+	url = https://github.com/DeltaVCode-cr-401js-2018/16-basic-authentication.git
