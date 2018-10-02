@@ -10,9 +10,12 @@ export const listSet = (lists) => ({
 });
 
 export const listFetch = () =>
-  dispatch =>
-    superagent.get(`${API_URL}/api/lists`)
+  (dispatch, getState) => {
+    var auth = getState().auth;
+    return superagent.get(`${API_URL}/api/lists`)
+      .set("Authorization", auth ? `Bearer ${getState().auth}` : null)
       .then(res => {
         dispatch(listSet(res.body));
         return res;
       });
+  };
