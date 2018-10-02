@@ -13,8 +13,7 @@ export const signupRequest = user => dispatch => {
   return superagent.post('http://localhost:5000/signup')
     .send(user)
     .then(res => {
-      var json = res.json();
-      dispatch(tokenSet(json.token));
+      dispatch(tokenSet(res.body.token));
       return res;
     })
 }
@@ -23,8 +22,7 @@ export const loginRequest = user => dispatch => {
   return superagent.get('http://localhost:5000/signin')
     .auth(user.username, user.password)
     .then(res => {
-      var json = res.json();
-      dispatch(tokenSet(json.token));
+      dispatch(tokenSet(res.body.token));
       return res;
     })
 }
