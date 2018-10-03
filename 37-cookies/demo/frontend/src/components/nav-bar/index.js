@@ -7,6 +7,7 @@ const NavBar = ({ auth }) => (
     {auth ?
       <ul>
         <li>Welcome, user!</li>
+        <li><Link to="/auth/signout">Sign Out</Link></li>
       </ul>
       :
       <ul>

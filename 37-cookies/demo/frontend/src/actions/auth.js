@@ -7,7 +7,9 @@ export const tokenSet = token => ({
 });
 
 export const TOKEN_DELETE = 'TOKEN_DELETE';
-// TODO: implement logout
+export const tokenDelete = () => ({
+  type: TOKEN_DELETE,
+});
 
 export const signupRequest = user => dispatch => {
   return superagent.post('http://localhost:5000/signup')
@@ -25,4 +27,9 @@ export const loginRequest = user => dispatch => {
       dispatch(tokenSet(res.body.token));
       return res;
     })
+}
+
+export const logoutRequest = redirect => dispatch => {
+  dispatch(tokenDelete());
+  redirect();
 }

@@ -6,6 +6,11 @@ import * as actions from '../../actions/auth';
 class AuthContainer extends React.Component {
   render() {
     const authType = this.props.match.params.type;
+    if (authType === 'signout') {
+      this.props.signoutHandler(() => this.props.history.push('/'));
+      return null;
+    }
+
     const submitButtonText =
       authType === 'signup' ? 'Sign Up' : 'Sign In';
 
@@ -25,6 +30,7 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => ({
   signinHandler: user => dispatch(actions.loginRequest(user)),
   signupHandler: user => dispatch(actions.signupRequest(user)),
+  signoutHandler: redirect => dispatch(actions.logoutRequest(redirect)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);
