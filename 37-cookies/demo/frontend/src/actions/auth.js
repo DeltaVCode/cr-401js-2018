@@ -6,6 +6,11 @@ export const tokenSet = token => ({
   payload: token,
 });
 
+export const TOKEN_FROM_COOKIE = 'TOKEN_FROM_COOKE';
+export const tokenFromCookie = () => ({
+  type: TOKEN_FROM_COOKIE,
+});
+
 export const TOKEN_DELETE = 'TOKEN_DELETE';
 export const tokenDelete = () => ({
   type: TOKEN_DELETE,
